@@ -2,7 +2,7 @@ import App, {Container} from 'next/app';
 import Page from '../components/Page';
 
 class MyApp extends App {
-  render () {
+  public render () {
     const {Component} = this.props;
 
     return (
@@ -11,7 +11,7 @@ class MyApp extends App {
           <Component />
         </Page>
       </Container>
-    )
+    );
   }
 }
 

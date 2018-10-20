@@ -2,7 +2,7 @@ import * as React from 'react';
 import Header from './Header';
 
 class Page extends React.Component {
-  render() {
+  public render() {
     return (
       <div>
         <Header></Header>

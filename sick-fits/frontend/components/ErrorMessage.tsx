@@ -19,20 +19,20 @@ const ErrorStyles = styled.div`
 `;
 
 const DisplayError = ({ error }: any) => {
-  if (!error || !error.message) return null;
+  if (!error || !error.message) { return null; }
   if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
-    return error.networkError.result.errors.map((error: any, i: any) => (
+    return error.networkError.result.errors.map((err: any, i: any) => (
       <ErrorStyles key={i}>
-        <p data-test="graphql-error">
+        <p data-test='graphql-error'>
           <strong>Shoot!</strong>
-          {error.message.replace('GraphQL error: ', '')}
+          {err.message.replace('GraphQL error: ', '')}
         </p>
       </ErrorStyles>
     ));
   }
   return (
     <ErrorStyles>
-      <p data-test="graphql-error">
+      <p data-test='graphql-error'>
         <strong>Shoot!</strong>
         {error.message.replace('GraphQL error: ', '')}
       </p>
