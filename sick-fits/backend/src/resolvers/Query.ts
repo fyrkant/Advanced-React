@@ -1,8 +1,10 @@
+import { forwardTo } from 'prisma-binding';
+
 export const Query = {
-  // dogs(parent, args, ctx, info) {
-  //   return [
-  //     { name: 'Snickers'},
-  //     { name: 'Sunny' }
-  //   ];
+  // async items(parent: any, args: any, ctx: any, info: any) {
+  //   const items = await ctx.db.query.items();
+
+  //   return items;
   // }
+  items: forwardTo('db')
 };
