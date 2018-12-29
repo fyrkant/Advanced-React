@@ -1,11 +1,11 @@
-import withApollo from 'next-with-apollo';
+import withApollo, { InitApolloOptions } from 'next-with-apollo';
 import ApolloClient from 'apollo-boost';
 import { endpoint } from '../config';
 
-function createClient({ headers }) {
+const createClient = ({ headers }: InitApolloOptions<any>) => {
   return new ApolloClient({
     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
-    request: operation => {
+    request: (operation: any) => {
       operation.setContext({
         fetchOptions: {
           credentials: 'include',
@@ -13,7 +13,7 @@ function createClient({ headers }) {
         headers,
       });
     },
-  });
-}
+  } as any);
+};
 
-export default withApollo(createClient);
+export const withData = withApollo(createClient);
